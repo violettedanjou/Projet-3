@@ -1,0 +1,87 @@
+h1
+{
+	font-size: 1.1em;
+}
+#middle
+{
+	width: 100%;
+	height: 120px;
+	padding-left: 12%;
+	padding-right: 12%;
+}
+
+ul
+{
+	width: auto;
+	height: auto;
+	display: flex;
+	justify-content: space-between;
+	padding: 0px;
+	margin-right: 0px;
+}
+li
+{
+	margin-right: 10px;
+}
+#diaporama_container
+{
+	height: 320px;
+}
+#button_container
+{
+	left: 32%;
+}
+.diaporama_img
+{
+	height: 80%;
+}
+p
+{
+	font-size: 1em;
+	margin: 0px;
+	margin-top: 5px;
+}
+
+#container3
+{
+	display: flex;
+	flex-direction: column;
+}
+#mapid
+{
+	width: 95%;
+	margin: 0px 10px 0px 10px;
+	height: 250px;
+}
+
+#container_reservation
+{
+	margin-top: 20px;
+	width: 95%;
+	height: 480px;
+}
+#btnReserv
+{
+	margin-left: 0px;
+}
+canvas
+{
+	width: 260px;
+}
+#canvas
+{
+	margin-left: 0px;
+}
+#divBtn
+{
+	text-align: left;
+}
+#btnOk
+{
+	margin-left: 0px;
+}
+
+#footer
+{
+	margin: 0px 10px 0px 10px;
+}

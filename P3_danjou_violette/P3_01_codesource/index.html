@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="fr-fr">
+<head>
+	<meta charset="utf-8"/>
+	<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet"> <!-- Police -->
+
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+   crossorigin=""/> <!-- Carte -->
+  	<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+   integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+   crossorigin=""></script> <!-- Carte -->
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"> <!-- Icones -->
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.3.0/dist/MarkerCluster.css"/> <!-- Markers -->
+	<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.3.0/dist/MarkerCluster.Default.css"/>
+	<script src="https://unpkg.com/leaflet.markercluster@1.3.0/dist/leaflet.markercluster-src.js"></script>
+
+	<meta name="viewport" content="width=device-width"> <!-- Meta tags -->
+	<meta name="author" content="Violette Danjou">
+	<meta name="description" content="Location de vélos en libre service dans la ville de Rouen.">
+
+	<meta property="og:site_name" content="Location vélos Rouen">
+	<meta property="og:title" content="Location de vélos dans la ville de Rouen.">
+	<meta property="og:url" content="https://fr-fr.facebook.com/">
+	<meta property="og:type" content="website">
+	<meta property="og:image" content="https://france3-regions.francetvinfo.fr/image/rdoAf22qvnnWGuXaYmSYmpPFKro/930x620/regions/2020/06/09/5edf627ce182b_img_8910-3828354.jpg">
+
+	<link rel="stylesheet" type="text/css" href="projet3.css"> <!-- CSS -->
+
+	<link rel="stylesheet" type="text/css" media="all and (max-width: 1300px)" href="responsive1.css"> <!-- Responsive -->
+	<link rel="stylesheet" type="text/css" media="all and (max-width: 1024px)" href="responsive2.css">
+	<link rel="stylesheet" type="text/css" media="all and (max-width: 780px)" href="responsive3.css">
+	<link rel="stylesheet" type="text/css" media="all and (max-width: 700px)" href="responsive4.css">
+	<link rel="stylesheet" type="text/css" media="all and (max-width: 400px)" href="responsive5.css">
+
+	<title>La ville de Rouen - Réservation de vélos</title> <!-- Titre fenêtre -->
+</head>
+
+<body>
+	<header>
+		<div id="logo">
+			<img id="img_logo" src="images_rouen/logo_rouen.png" alt="Logo de la ville de Rouen"/>
+		</div>
+
+		<div id="middle">
+			<h1>Location de vélos en libre service à Rouen</h1>
+
+			<nav>
+				<ul>
+					<li class="li"><a href="#diaporama">Diaporama</a></li>
+					<li class="li"><a href="#mapid">Carte</a></li>
+					<li class="li"><a href="#container_reservation">Réservation</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+
+	<section id="principal_container">
+
+		<section id="diaporama_container">
+			<div id="diaporama">
+				
+				<figure class="diaporama_img">			
+					<img src="images_rouen/screen1.png" alt="explication réservation 1" id="image1">
+
+				<figcaption>
+					<p>Pour réservez, cliquez sur le "+" pour zoomer sur la carte. Déplacez vous sur la carte à l’aide de la souris. Cliquez sur la station choisie.</p>
+				</figcaption> 
+				</figure> 
+
+				<figure class="diaporama_img">
+					<img src="images_rouen/screen2.png" alt="explication réservation 2" id="image2">
+
+				<figcaption>
+					<p>Entrez votre nom et votre prénom. Cliquez sur réservez. Signez dans le cadre. Validez.</p>
+				</figcaption>
+				</figure> 
+
+				<figure class="diaporama_img">
+					<img src="images_rouen/screen3.png" alt="explication réservation 3" id="image3">
+
+				<figcaption>
+					<p> Votre réservation s’affiche en bas de page, avec le temps restant pour aller chercher votre vélo.</p>
+				</figcaption> 
+				</figure>
+			</div>
+
+			<div id="button_container">
+				<div id="button_previous">
+					<i class="fas fa-arrow-circle-left"></i>
+				</div>
+
+				<div id="button_play">
+					<i class="fas fa-play-circle"></i>
+				</div>
+
+				<div id="button_pause">
+					<i class="fas fa-pause-circle"></i>
+				</div>
+
+				<div id="button_next">
+					<i class="fas fa-arrow-circle-right"></i>
+				</div>
+			</div>
+		</section>
+
+		<div id="container2">
+			<h2>Carte des vélos - Réservation</h2>
+		</div>
+
+		<section id="container3">
+			<div id="mapid">
+				<script type="text/javascript"></script>
+			</div>
+
+			<div id="container_reservation">
+				<form method="post" action="#">
+					<div>
+						<h2>Réservation</h2>
+
+						<p id="station">
+							<strong>Adresse : </strong><span id="address"></span><br/>
+							<strong>Nombre de places : </strong><span id="places"></span><br/>
+							<strong>Vélos disponibles : </strong><span id="bikes"></span><br/>
+						</p>
+					
+						<label for="name"><strong id="name"> Nom : </strong></label> <input type="text" id="inpName" placeholder="Nom" required><br/>
+						<label for="name"><strong id="surname"> Prénom : </strong></label> <input type="text" id="inpSurname" placeholder="Prénom" required><br/>
+						<button type="button" id="btnReserv"> Réserver </button>
+					</div>
+				</form>
+
+				<canvas id="canvas" width="300px" height="110px"></canvas>
+
+				<div id="divBtn">
+					<button type="button" id="btnOk"> Valider</button>
+					<button type="button" id="btnDelete"> Annuler </button>
+				</div>
+			</div>
+		</section>
+
+	</section>
+
+	<footer>
+		<div id="footer">
+			<strong id="textFooter"> Ma réservation : </strong>
+			<span id="time"></span>
+		</div>
+	</footer>
+
+	<script src="projet3.js"></script>
+	<script src="diaporama.js"></script>
+	<script src="carte.js"></script>
+	<script src="signature.js"></script>
+	<script src="compteur.js"></script>
+	<script src="main.js"></script>
+</body>
+</html>
